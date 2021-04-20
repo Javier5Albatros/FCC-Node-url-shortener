@@ -13,7 +13,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-validator": "^6.10.0",
-    "mongoose": "^5.12.5"
+    "mongoose": "^5.12.5",
+    "shortid": "^2.2.16"
   },
   "license": "MIT",
   "devDependencies": {
