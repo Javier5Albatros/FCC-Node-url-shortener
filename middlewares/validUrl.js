@@ -4,8 +4,7 @@ const regex = new RegExp(expression);
 
 const validUrl = async (req, res, next) => {
   const { url } = req.body;
-  console.log(regex.test(url));
-  if (!match) {
+  if (!regex.test(url)) {
     return res.status(400).json({ error: "invalid url" });
   }
   next();
