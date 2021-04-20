@@ -6,12 +6,13 @@ const {
   existingUrlByShort,
   existingUrlByOriginal,
 } = require("../middlewares/existingUrl");
+const { validUrl } = require("../middlewares/validUrl");
 
 const router = express.Router();
 
 router.post(
   "/shorturl",
-  [check("url").notEmpty(), check("url", "invalid url").isURL(), existingUrlByOriginal, errorHandler],
+  [validUrl, existingUrlByOriginal, errorHandler],
   saveUrl
 );
 router.get("/shorturl/:url", [existingUrlByShort], getUrl);

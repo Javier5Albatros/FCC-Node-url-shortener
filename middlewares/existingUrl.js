@@ -3,7 +3,6 @@ const { Url } = require("../models/Url");
 const existingUrlByOriginal = async (req, res, next) => {
   const original_url = req.body.url;
   const url = await Url.findOne({ original_url });
-  console.log(original_url, url)
   if (url) {
     req.xurl = url;
   }
