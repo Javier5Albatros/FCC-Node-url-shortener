@@ -15,7 +15,7 @@ router.post(
   [
     check("url").notEmpty(),
     validUrl,
-    existingUrl,
+    
     existingUrlByOriginal,
     errorHandler,
   ],
