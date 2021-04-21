@@ -6,20 +6,19 @@ const saveUrl = async (req, res) => {
     return res.json({
       short_url,
       original_url,
-      hash: short_url,
     });
   } else {
     const reqUrl = req.body.url;
     const url = new Url({ original_url: reqUrl });
     await url.save();
     const { short_url, original_url } = url;
-    return res.json({ short_url, original_url, hash: short_url });
+    return res.json({ short_url, original_url});
   }
 };
 
 const getUrl = (req, res) => {
   const url = req.xurl;
-  console.log(url)
+  console.log(url);
   if (url) {
     res.status(301).redirect(url.original_url);
   } else {
