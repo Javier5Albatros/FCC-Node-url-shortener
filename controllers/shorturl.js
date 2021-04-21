@@ -20,7 +20,7 @@ const saveUrl = async (req, res) => {
 const getUrl = (req, res) => {
   const url = req.xurl;
   if (url) {
-    return res.status(300).redirect(url.original_url);
+    return res.redirect(url.original_url);
   } else {
     return res.json({ msg: "Url not found" });
   }
