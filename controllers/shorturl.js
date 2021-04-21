@@ -19,10 +19,11 @@ const saveUrl = async (req, res) => {
 
 const getUrl = (req, res) => {
   const url = req.xurl;
+  console.log(url)
   if (url) {
-    return res.redirect(url.original_url);
+    res.status(301).redirect(url.original_url);
   } else {
-    return res.json({ msg: "Url not found" });
+    return res.json({ error: "Wrong format" });
   }
 };
 

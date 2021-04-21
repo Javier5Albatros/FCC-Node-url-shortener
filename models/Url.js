@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const shortid = require("shortid");
+const { v4: uuidv4 } = require('uuid');
 
 const urlSchema = mongoose.Schema({
   original_url: {
@@ -8,7 +8,7 @@ const urlSchema = mongoose.Schema({
   },
   short_url: {
     type: String,
-    default: shortid.generate(),
+    default: uuidv4(),
   },
 });
 
