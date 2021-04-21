@@ -6,9 +6,7 @@ const dns = require("dns");
 const validUrl = async (req, res, next) => {
   const { url } = req.body;
   let exists;
-  await dns.lookup(url, (err) => {
-    if (err) exists = false;
-  });
+  exists = regex.test(url);
   if (!exists) {
     return res.status(400).json({ error: "invalid url" });
   }

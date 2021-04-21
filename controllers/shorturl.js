@@ -2,16 +2,18 @@ const { Url } = require("../models/Url");
 
 const saveUrl = async (req, res) => {
   if (req.xurl) {
-    return res.json(req.xurl);
+    let {original_url, short_url} = req.xurl;
+    return res.json({
+      short_url,
+      original_url,
+      hash: req.xurl.original_url
+    });
   } else {
-    const original_url = req.body.url;
-    const url = new Url({ original_url });
-    url
-      .save()
-      .then((data) => {
-        return res.json(url);
-      })
-      .catch((err) => console.log(err));
+    const reqUrl = req.body.url;
+    const url = new Url({ original_url: reqUrl });
+    await url.save();
+    const { short_url, original_url } = url;
+    return res.json({ short_url, original_url, hash: short_url });
   }
 };
 
