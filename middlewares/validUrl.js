@@ -7,7 +7,7 @@ const validUrlP = require("valid-url");
 const validUrl = async (req, res, next) => {
   const { url } = req.body;
   if (!validUrlP.isWebUri(url)) {
-    return res.status(400).json({ error: "invalid url" });
+    return res.json({ error: "invalid url" });
   }
   next();
 };
