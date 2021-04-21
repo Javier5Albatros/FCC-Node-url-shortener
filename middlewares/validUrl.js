@@ -2,11 +2,11 @@ const expression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9
 
 const regex = new RegExp(expression);
 const dns = require("dns");
-var validUrl = require("valid-url");
+const validUrlP = require("valid-url");
 
 const validUrl = async (req, res, next) => {
   const { url } = req.body;
-  if (!validUrl.isWebUri(url)) {
+  if (!validUrlP.isWebUri(url)) {
     return res.status(400).json({ error: "invalid url" });
   }
   next();
