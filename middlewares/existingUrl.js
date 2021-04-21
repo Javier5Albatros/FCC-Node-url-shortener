@@ -20,5 +20,5 @@ const existingUrlByShort = async (req, res, next) => {
 
 module.exports = {
   existingUrlByOriginal,
-  existingUrlByShort
+  existingUrlByShort,
 };

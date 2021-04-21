@@ -13,4 +13,13 @@ const validUrl = async (req, res, next) => {
   next();
 };
 
-module.exports = { validUrl };
+const existingUrl = (req, res, next) => {
+  const { url } = req.body;
+  dns.lookup(url, (err) => {
+    if (err) {
+      return res.json({ error: "Invalid Hostname" });
+    }
+  });
+};
+
+module.exports = { validUrl, existingUrl };
