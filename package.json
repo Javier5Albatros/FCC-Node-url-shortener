@@ -17,7 +17,8 @@
     "mongoose-uuid4": "^0.0.1",
     "shortid": "^2.2.16",
     "urlregex": "^0.6.0",
-    "uuidv4": "^6.2.7"
+    "uuidv4": "^6.2.7",
+    "valid-url": "^1.0.9"
   },
   "license": "MIT",
   "devDependencies": {
