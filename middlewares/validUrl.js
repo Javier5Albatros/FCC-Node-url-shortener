@@ -17,7 +17,8 @@ const existingUrl = (req, res, next) => {
   dns.lookup(url, (err) => {
     if (err) {
       return res.json({ error: "Invalid Hostname" });
-    }
+    } else {
+      next();
   });
 };
 
